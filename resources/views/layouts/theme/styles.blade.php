@@ -6,6 +6,12 @@
 <link href="{{ asset('assets/css/structure.css') }}" rel="stylesheet" type="text/css" class="structure" />
 <!-- END GLOBAL MANDATORY STYLES -->
 
+<link href="{{ asset('plugins/font-icons/fontawesome/css/fontawesome.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('css/brands.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('css/solid.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('css/regular.css') }}" rel="stylesheet" type="text/css" />
+
 <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 <link href="{{ asset('plugins/apex/apexcharts.css') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('assets/css/dashboard/dash_2.css') }}" rel="stylesheet" type="text/css" class="dashboard-sales" />
