@@ -46,7 +46,8 @@
                     <div class="dropdown-item">
                         <a href="{{ route('logout') }}" 
                         onclick="event.preventDefault(); 
-                        document.getElementById('logout-form').submit()">
+                        document.getElementById('logout-form').submit()"
+                        >
                             <i class="fa-solid fa-arrow-right-from-bracket"></i>
                             <span>Salir</span>
                         </a>

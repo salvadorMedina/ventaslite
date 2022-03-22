@@ -8,6 +8,8 @@ class Blank extends Component
 {
     public function render()
     {
-        return view('livewire.blank');
+        return view('livewire.blank')
+        ->extends('layaouts.theme.app')
+        ->section('content');;
     }
 }

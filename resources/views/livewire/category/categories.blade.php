@@ -5,16 +5,16 @@
         <div class="widget widget-chart-one">
             <div class="widget-heading">
                 <h4 class="card-title">
-                    <b>ComponentName | PageTitle</b>
+                    <b>{{$componentName}} | {{$pageTitle}}</b>
                 </h4>
                 <ul class="tabs tab-pills">
                     <li>
                         <a href="javascript:void(0)" class="tabmenu bg-dark" data-toggle="modal" 
-                        data-target="#themodal">Agregar</a>
+                        data-target="#theModal">Agregar</a>
                     </li>
                 </ul>
             </div>
-            Search
+            @include('common.searchbox')
 
             <div class="widget-content">
 
@@ -28,36 +28,47 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($categories as $category)
                             <tr>
-                                <td><h6>Category Name</h6></td>
+                                <td><h6>{{$category->name}}</h6></td>
                                 <td class="text-center">
                                     <span>
-                                        <img src="" alt="imagen de ejemplo" height="70" width="80" class="rounded">
+                                        <img src="{{ asset('storage/categories/' .$category->image) }}" alt="imagen de ejemplo" height="70" width="80" class="rounded">
                                     </span>
                                 </td>
                                 <td class="text-center">
-                                    <a href="javascript:void(0)" class="btn btn-dark mtmobile" title="Edit">
+                                    <a href="javascript:void(0)" 
+                                    wire:click="Edit({{$category->id}})"
+                                    class="btn btn-dark mtmobile" title="Edit">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="javascript:void(0)" class="btn btn-dark " title="Delete">
+                                    <a href="javascript:void(0)" 
+                                    onclick="Confirm('{{$category->id}}')"
+                                    class="btn btn-dark " title="Delete">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
-                            </tr>
+                            </tr> 
+                            @endforeach
                         </tbody>
 
                     </table>
-                    Pagintion
+                    {{$categories->links()}}
                 </div>
 
             </div>
         </div>
 
     </div>
-Include Form
+@include('livewire.category.form')
 </div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+
+        window.livewire.on('show-modal', msg =>{
+            $('#theModal').modal('show')
+        });
+
     });
 </script>
